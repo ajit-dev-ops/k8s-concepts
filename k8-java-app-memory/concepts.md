@@ -81,11 +81,14 @@ Basically it sets the maximum size for the compiler's code cache.
 
 The cache can become full, which results in warnings like the following:
 
+```bash
 Java HotSpot(TM) 64-Bit Server VM warning: CodeCache is full. Compiler has been disabled.
 Java HotSpot(TM) 64-Bit Server VM warning: Try increasing the code cache size using -XX:ReservedCodeCacheSize=
 Code Cache  [0x000000010958f000, 0x000000010c52f000, 0x000000010c58f000)
  total_blobs=15406 nmethods=14989 adapters=362 free_code_cache=835Kb largest_free_block=449792
+ 
 It's much worse when followed by Java HotSpot(TM) Client VM warning: Exception java.lang.OutOfMemoryError occurred dispatching signal SIGINT to handler- the VM may need to be forcibly terminated.
+```
 
 When to set this option?
 
