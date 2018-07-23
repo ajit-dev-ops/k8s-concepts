@@ -1,0 +1,26 @@
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: "example-3"
+  namespace: default
+spec:
+  targets:
+  - name: app-with-istio-1
+  peers:
+  - mtls:
+  origins:
+  - jwt:
+      issuer: https://ajit-test.eu.auth0.com/
+      jwksUri: https://ajit-test.eu.auth0.com/.well-known/jwks.json
+  principalBinding: USE_ORIGIN
+---
+apiVersion: "networking.istio.io/v1alpha3"
+kind: "DestinationRule"
+metadata:
+  name: "example-2"
+  namespace: default
+spec:
+  host: "app-with-istio-1.default.svc.cluster.local"
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
