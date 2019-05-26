@@ -23,7 +23,7 @@ data:
 ## Setting up a def back end with custom pages
 #### Base image is defined at
 -  https://github.com/kubernetes/ingress-nginx/blob/master/images/custom-error-pages/main.go
-- Now Deafult backend by default serves pages that are in docker image'S `/www` folder we will overwrite these pages and add our own pages to this folder in our docker image.
+- Now Deafult backend by default serves pages that are in docker image's `/www` folder we will overwrite these pages and add our own pages to this folder in our docker image.
 
 ### How is this working:
 nginx ingress sends the error code to default backend in `X-CODE` header, which the default backed must decode and then build the static html page file path to return to. 
