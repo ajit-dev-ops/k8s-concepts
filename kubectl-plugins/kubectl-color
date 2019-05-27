@@ -2,4 +2,3 @@
 
 kubectl "$@" 2>&1 | lolcat
 
-#export PATH="/Users/d069900/bin:$PATH"
