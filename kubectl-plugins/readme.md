@@ -8,6 +8,30 @@
 Help:
 https://www.youtube.com/watch?v=83ITOTsXsHU
 
+
+2. Using k8s.io/cli-runtime 
+
+### A samle plug-in to change the ns
+https://github.com/kubernetes/sample-cli-plugin
+
+## All other plugins by community:
+
+### using plugins
+install krew https://github.com/kubernetes-sigs/krew
+list of plugins: https://github.com/kubernetes-sigs/krew-index/tree/master/plugins
+
+### develop your plugin
+https://github.com/kubernetes-sigs/krew/blob/master/docs/DEVELOPER_GUIDE.md#installing-plugins-locally
+kubectl krew install --manifest=foo.yaml --archive=foo.tar.gz
+https://github.com/kubernetes-sigs/krew/blob/master/docs/NAMING_GUIDE.md
+tar --exclude='.[^/]*' -zcvf plugins.tar.gz .
+tar -zxvf archive_name.tar.gz --untar
+shasum -a 256 plugins.tar.gz
+kubectl krew install --manifest=./kubectl-plugins/podstail/podstail.yaml --archive=plugins.tar.gz
+
+
+
+
 Some commands:
 
 # Other sililar utilities
