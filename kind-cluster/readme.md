@@ -9,7 +9,7 @@
 
 
 ### Creating a k8s cluster with pre-built docker images of various k8s versions:
-Kind releases a lot of pre-built node images that can be ued to create a k8s cluster of a particular version.
+Kind releases a lot of pre-built node images that can be used to create a k8s cluster of a particular version.
 The pre-built images are listed at:
 https://github.com/kubernetes-sigs/kind/releases
 
