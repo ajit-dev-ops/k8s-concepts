@@ -18,10 +18,3 @@ e.g. Deployment:
 
 
 links:
-
-https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/
-https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
-https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
-
-https://kubernetes.io/docs/tasks/administer-cluster/guaranteed-scheduling-critical-addon-pods/
-https://kubernetes.io/docs/concepts/policy/pod-security-policy/

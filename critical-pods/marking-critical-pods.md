@@ -77,6 +77,24 @@ https://github.com/kubernetes/kubernetes/pull/65593
 `Error creating: pods "istio-cni-node-" is forbidden: pods with system-node-critical priorityClass is not permitted in istio-system namespace
 
 
+## defining own priority classes 
+
+````yaml
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: high-priority
+value: 1000000
+globalDefault: false
+description: "This priority class should be used for XYZ service pods only."
+````
+
+https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass
+
 ## links
 https://kubernetes.io/docs/tasks/administer-cluster/guaranteed-scheduling-critical-addon-pods/
 https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+
+https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/
+https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
+https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
