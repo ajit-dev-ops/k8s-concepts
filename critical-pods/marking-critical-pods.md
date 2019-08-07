@@ -53,9 +53,9 @@ How to mark pods as critical:
           operator: Exists
         - effect: NoExecute
           operator: Exists
-      priorityClassName: system-node-critical
+      priorityClassName: system-node-critical # only this class is allwoed in kube-system ns
 ```
-## Note: this priority-class-name does not work as in k8s code it is checked that, the ns must be kube-system along with priority class name.
+## Note: this priority-class-name `system-node-critical` does not work as in k8s code it is checked that, the ns must be kube-system along with priority class name.
 so fot now only the above annotation works if one needs to mark a pod critical.
 
 ````
@@ -79,14 +79,49 @@ https://github.com/kubernetes/kubernetes/pull/65593
 
 ## defining own priority classes 
 
+check api versions 
+```bash
+kubectl api-versions # available apis 
+kubectl api-resources # list api n resources 
+```
+
+
+
 ````yaml
-apiVersion: scheduling.k8s.io/v1
+apiVersion: scheduling.k8s.io/v1beta1 #scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
   name: high-priority
 value: 1000000
 globalDefault: false
 description: "This priority class should be used for XYZ service pods only."
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  priorityClassName: high-priority
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx2
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  priorityClassName: system-node-critical # only this class is allwoed in kube-system ns
+
 ````
 
 https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass
