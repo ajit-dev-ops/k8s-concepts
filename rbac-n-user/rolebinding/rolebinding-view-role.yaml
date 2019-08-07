@@ -1,0 +1,34 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: cloudsearch-edit-role
+  namespace: cloudsearch
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: cloudsearch-edit
+subjects:
+- kind: ServiceAccount
+  name: user-miomir-boljanovic
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-grzegorz-lebek
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-jose-cunca
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-marek-tchorz
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-shivendu-verma
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-andrea-stefani
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-daniel-hoppe
+  namespace: cloudsearch
+- kind: ServiceAccount
+  name: user-reinhard-maier
+  namespace: cloudsearch

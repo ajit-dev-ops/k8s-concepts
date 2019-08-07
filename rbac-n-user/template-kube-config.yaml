@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: {{ .Values.crt }}
+    server: {{ .Values.server }}
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    namespace: cloudsearch
+    user: user-andrea-stefani-cloudsearch-kubernetes
+  name: user-andrea-stefani-cloudsearch-kubernetes
+current-context: user-andrea-stefani-cloudsearch-kubernetes
+kind: Config
+preferences: {}
+users:
+- name: user-andrea-stefani-cloudsearch-kubernetes
+  user:
+    token: {{ .Values.token }}

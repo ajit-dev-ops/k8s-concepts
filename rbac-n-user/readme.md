@@ -1,0 +1,1 @@
+. ./kube/create-kube-conf.sh [SERVICE_ACCOUNT_NAME] [NAMESPACE]
