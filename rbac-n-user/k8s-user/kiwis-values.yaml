@@ -1,0 +1,7 @@
+subjects:
+- kind: ServiceAccount
+  name: service-search-service
+  namespace: kiwis
+- kind: ServiceAccount
+  name: service-commerce-search-service
+  namespace: kiwis

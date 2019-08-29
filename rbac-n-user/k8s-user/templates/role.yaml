@@ -1,8 +1,10 @@
+{{ if and .Values.role (eq .Values.role "namespace-editor") }}
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   namespace: {{ .Values.namespace }}
-  name: edit-role
+  name: {{ include "k8s-user.fullname" . }}
 rules:
 - apiGroups: [""]
   resources: ["services", "endpoints", "pods", "configmaps", "secrets", "serviceaccounts"]
@@ -22,3 +24,25 @@ rules:
 - apiGroups: [""]
   resources: ["pods/exec"]
   verbs: ["create"]
+{{ end }}
+---
+{{ if and .Values.role (eq .Values.role "namespace-viewer") }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: {{ .Values.namespace }}
+  name: {{ include "k8s-user.fullname" . }}
+rules:
+- apiGroups: [""]
+  resources: ["services", "endpoints", "pods", "configmaps", "secrets", "serviceaccounts"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["extensions", "apps"]
+  resources: ["deployments", "replicasets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["extensions", "batch"]
+  resources: ["jobs"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["roles", "rolebindings", "clusterroles"]
+  verbs: ["get", "list", "watch"]
+{{ end }}

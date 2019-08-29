@@ -1,8 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: cloudsearch
-  name: cloudsearch-view
+  namespace: kiwis
+  name: kiwis-view
 rules:
 - apiGroups: [""]
   resources: ["services", "endpoints", "pods", "configmaps", "secrets", "serviceaccounts"]
