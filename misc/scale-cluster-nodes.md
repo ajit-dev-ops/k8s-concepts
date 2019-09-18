@@ -13,6 +13,10 @@ during istio upgrade as cni daemonset takes 1 pod on each node, and since we nee
 e.g. Deployment:
 ```yaml
 
+create this deploy with podantiaffinity
+
+create priority classes on commontools ns
+
 
 ```
 

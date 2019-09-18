@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"policy/v1beta1","kind":"PodSecurityPolicy","metadata":{"annotations":{"kubernetes.io/change-cause":"kubectl apply --record=true --filename=kubeadm-customs/ci/assets/rbac/aws/eu-central-1/argonautsmunich-prod-b/default-psp.yaml","seccomp.security.alpha.kubernetes.io/allowedProfileNames":"docker/default","seccomp.security.alpha.kubernetes.io/defaultProfileName":"docker/default"},"name":"default"},"spec":{"allowedCapabilities":["NET_ADMIN"],"fsGroup":{"ranges":[{"max":65535,"min":1}],"rule":"MustRunAs"},"hostIPC":false,"hostPID":false,"privileged":true,"readOnlyRootFilesystem":false,"runAsUser":{"rule":"RunAsAny"},"seLinux":{"rule":"RunAsAny"},"supplementalGroups":{"ranges":[{"max":65535,"min":1}],"rule":"MustRunAs"},"volumes":["configMap","downwardAPI","emptyDir","persistentVolumeClaim","projected","secret"]}}
+    kubernetes.io/change-cause: kubectl apply --record=true --filename=kubeadm-customs/ci/assets/rbac/aws/eu-central-1/argonautsmunich-prod-b/default-psp.yaml
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: docker/default
+    seccomp.security.alpha.kubernetes.io/defaultProfileName: docker/default
+  creationTimestamp: null
+  name: default
+  selfLink: /apis/extensions/v1beta1/podsecuritypolicies/default
+spec:
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - NET_ADMIN
+  fsGroup:
+    ranges:
+    - max: 65535
+      min: 1
+    rule: MustRunAs
+  privileged: true
+  runAsUser:
+    rule: RunAsAny
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    ranges:
+    - max: 65535
+      min: 1
+    rule: MustRunAs
+  volumes:
+  - configMap
+  - downwardAPI
+  - emptyDir
+  - persistentVolumeClaim
+  - projected
+  - secret
+---
+apiVersion: extensions/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"policy/v1beta1","kind":"PodSecurityPolicy","metadata":{"annotations":{"seccomp.security.alpha.kubernetes.io/allowedProfileNames":"*"},"name":"privileged"},"spec":{"allowPrivilegeEscalation":true,"allowedCapabilities":["*"],"fsGroup":{"rule":"RunAsAny"},"hostIPC":true,"hostNetwork":true,"hostPID":true,"hostPorts":[{"max":65535,"min":0}],"privileged":true,"readOnlyRootFilesystem":false,"runAsUser":{"rule":"RunAsAny"},"seLinux":{"rule":"RunAsAny"},"supplementalGroups":{"rule":"RunAsAny"},"volumes":["*"]}}
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
+  creationTimestamp: null
+  name: privileged
+  selfLink: /apis/extensions/v1beta1/podsecuritypolicies/privileged
+spec:
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - '*'
+  fsGroup:
+    rule: RunAsAny
+  hostIPC: true
+  hostNetwork: true
+  hostPID: true
+  hostPorts:
+  - max: 65535
+    min: 0
+  privileged: true
+  runAsUser:
+    rule: RunAsAny
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  volumes:
+  - '*'

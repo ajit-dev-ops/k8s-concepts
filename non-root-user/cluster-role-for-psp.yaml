@@ -1,0 +1,61 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"default-psp"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"default-psp"},"subjects":[{"apiGroup":"rbac.authorization.k8s.io","kind":"Group","name":"system:authenticated"}]}
+  creationTimestamp: "2018-11-15T20:08:49Z"
+  name: default-psp
+  resourceVersion: "198"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterrolebindings/default-psp
+  uid: 43df6409-e912-11e8-9cc9-0aaa7a41d820
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: default-psp
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:authenticated
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"name":"default-psp"},"rules":[{"apiGroups":["policy"],"resourceNames":["default"],"resources":["podsecuritypolicies"],"verbs":["use"]}]}
+  creationTimestamp: "2018-11-15T20:08:49Z"
+  name: default-psp
+  resourceVersion: "197"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/default-psp
+  uid: 43ddfb3c-e912-11e8-9cc9-0aaa7a41d820
+rules:
+- apiGroups:
+  - policy
+  resourceNames:
+  - example
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"name":"privileged-psp"},"rules":[{"apiGroups":["policy"],"resourceNames":["privileged"],"resources":["podsecuritypolicies"],"verbs":["use"]}]}
+  creationTimestamp: "2018-11-15T20:08:49Z"
+  name: privileged-psp
+  resourceVersion: "210"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/privileged-psp
+  uid: 43fa8570-e912-11e8-9cc9-0aaa7a41d820
+rules:
+- apiGroups:
+  - policy
+  resourceNames:
+  - privileged
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
