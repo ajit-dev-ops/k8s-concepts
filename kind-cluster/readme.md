@@ -1,6 +1,7 @@
 # Kind cluster intro
 
 Installing Kind: https://github.com/kubernetes-sigs/kind
+Connecting to local cluster: export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
 
 ### Change docker preferences:
 
