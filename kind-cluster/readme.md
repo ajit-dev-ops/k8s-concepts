@@ -1,5 +1,7 @@
 # Kind cluster intro
 
+Installing Kind: https://github.com/kubernetes-sigs/kind
+
 ### Change docker preferences:
 
 ![docker seeting change memory to 4gb](./dockerPreferences.png)
