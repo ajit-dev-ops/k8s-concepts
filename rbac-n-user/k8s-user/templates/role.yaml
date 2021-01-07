@@ -5,6 +5,8 @@ kind: Role
 metadata:
   namespace: {{ .Values.namespace }}
   name: {{ include "k8s-user.fullname" . }}
+  labels:
+    app: {{ include "k8s-user.fullname" . }}
 rules:
 - apiGroups: [""]
   resources: ["services", "endpoints", "pods", "configmaps", "secrets", "serviceaccounts"]
@@ -30,8 +32,9 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: {{ .Values.namespace }}
   name: {{ include "k8s-user.fullname" . }}
+  labels:
+    app: {{ include "k8s-user.fullname" . }}
 rules:
 - apiGroups: [""]
   resources: ["services", "endpoints", "pods", "configmaps", "secrets", "serviceaccounts"]

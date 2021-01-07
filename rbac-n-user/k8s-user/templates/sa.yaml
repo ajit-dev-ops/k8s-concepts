@@ -1,6 +1,11 @@
+{{- if .Values.serviceAccounts }}
+{{- range $i, $var := .Values.serviceAccounts }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "k8s-user.fullname" . }}
+  name: {{ include "k8s-user.fullname" $ }}-{{$var.name}}
   labels:
-    app: {{ include "k8s-user.fullname" . }}
+    app: {{ include "k8s-user.fullname" $ }}
+---
+{{- end }}
+{{- end }}

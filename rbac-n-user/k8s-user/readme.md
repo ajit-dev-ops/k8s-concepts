@@ -4,5 +4,6 @@ Roles:
 - namespace-viewer
 - namespace-editor 
 
-
-helm template . --set role=namespace-viewer --name=ajit-viewer --set namespace=test
+```bash
+helm --namespace kiwis upgrade -i -f ./kiwis-values.yaml --set role=namespace-viewer  --set namespace=test  test-sa-user ./ --debug --dry-run
+```

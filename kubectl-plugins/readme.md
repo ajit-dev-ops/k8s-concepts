@@ -15,6 +15,7 @@ https://www.youtube.com/watch?v=83ITOTsXsHU
 https://github.com/kubernetes/sample-cli-plugin
 
 ## All other plugins by community:
+1. https://github.com/danisla/kubefunc
 
 ### using plugins
 install krew https://github.com/kubernetes-sigs/krew

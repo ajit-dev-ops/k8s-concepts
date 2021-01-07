@@ -1,7 +1,34 @@
-subjects:
-- kind: ServiceAccount
-  name: service-search-service
-  namespace: kiwis
-- kind: ServiceAccount
-  name: service-commerce-search-service
-  namespace: kiwis
+#subjects:
+#- kind: ServiceAccount
+#  name: service-search-service
+#  namespace: kiwis
+#- kind: ServiceAccount
+#  name: service-commerce-search-service
+#  namespace: kiwis
+
+namespacesUsers:
+  - name: ajit
+    role: namespace-editor
+    prefix: ns-user
+    namespace: argonauts
+  - name: corey
+    role: namespace-editor
+    prefix: tech-user
+    namespace: kiwis
+
+technicalUsers:
+  serviceAccounts:
+    - name: x2
+      role: namespace-editor
+      prefix: tech-user
+  namespaces:
+    - kiwis
+    - commontools
+
+
+clusterUsers:
+  serviceAccounts:
+    - name: c1
+      role: cluster-admin
+      prefix: k8s-user
+
